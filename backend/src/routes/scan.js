@@ -31,7 +31,7 @@ router.post("/barcode", requireAuth, async (req, res) => {
     }
     product = data.product;
   } catch (err) {
-    return res.status(502).json({ error: "Could not reach the product database" });
+    return res.status(502).json({ error: "Could not reach the product database. Please check your connection and try again." });
   }
 
   const ingredientText = product.ingredients_text || "";
