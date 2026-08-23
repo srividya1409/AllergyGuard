@@ -15,7 +15,7 @@ router.post("/signup", async (req, res) => {
   if (!email || !password || !name) {
     return res.status(400).json({ error: "name, email, and password are required" });
   }
-  if (password.length < 8) {
+  if (!password || password.length < 8) {
     return res.status(400).json({ error: "Password must be at least 8 characters" });
   }
 
