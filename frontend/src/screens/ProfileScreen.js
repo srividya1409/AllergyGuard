@@ -58,7 +58,7 @@ export default function ProfileScreen() {
       <TouchableOpacity style={styles.button} onPress={handleSave}>
         <Text style={styles.buttonText}>Save Changes</Text>
       </TouchableOpacity>
-      {saved ? <Text style={styles.savedText}>Profile updated</Text> : null}
+      {saved ? <Text style={styles.savedText}>✓ Profile updated</Text> : null}
     </ScrollView>
   );
 }
