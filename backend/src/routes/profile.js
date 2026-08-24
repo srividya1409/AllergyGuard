@@ -5,7 +5,7 @@ const { findUserById, updateUser } = require("../models/User");
 const requireAuth = require("../middleware/requireAuth");
 
 const router = express.Router();
-
+// The 9 supported allergen categories, per the product spec.
 const ALLERGEN_CATEGORIES = [
   "peanuts", "tree_nuts", "milk", "eggs", "wheat",
   "soy", "fish", "shellfish", "sesame",
