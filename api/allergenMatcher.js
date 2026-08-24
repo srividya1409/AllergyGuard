@@ -12,7 +12,7 @@ const ALLERGEN_ALIASES = {
   soy: ["soy", "soybean", "soya", "lecithin"],
   fish: ["fish", "anchovy", "cod", "salmon", "tuna"],
   shellfish: ["shrimp", "crab", "lobster", "shellfish", "prawn"],
-  sesame: ["sesame", "tahini"],
+  sesame: ["sesame", "tahini", "sesame oil"],
 };
 
 /**
