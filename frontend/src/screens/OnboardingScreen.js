@@ -29,7 +29,7 @@ export default function OnboardingScreen({ navigation }) {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.title}>Which allergies should we watch for?</Text>
+      <Text style={styles.title}>Let's set up your allergy profile</Text>
       <View style={styles.chipContainer}>
         {ALLERGEN_CATEGORIES.map((category) => (
           <TouchableOpacity

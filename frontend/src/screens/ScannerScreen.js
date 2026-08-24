@@ -33,7 +33,7 @@ export default function ScannerScreen({ navigation }) {
   if (!permission.granted) {
     return (
       <View style={styles.container}>
-        <Text style={styles.message}>We need camera access to scan barcodes.</Text>
+        <Text style={styles.message}>Camera access is needed to scan product barcodes and check them against your allergy profile.</Text>
         <TouchableOpacity style={styles.button} onPress={requestPermission}>
           <Text style={styles.buttonText}>Grant Permission</Text>
         </TouchableOpacity>
