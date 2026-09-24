@@ -17,20 +17,18 @@ automatically rather than recalled manually.
 
 ```
 AllergyGuard/
-├── frontend/          # React Native (Expo) mobile app
-│   └── src/
-│       ├── screens/       # Sign up, Login, Onboarding, Profile, Scanner, Emergency
-│       ├── components/    # Reusable UI components
-│       └── services/      # API client, auth token storage
-├── backend/           # Node.js / Express API
-│   └── src/
-│       ├── routes/        # /auth, /profile, /scan endpoints
-│       ├── models/        # Data models
-│       └── middleware/    # Auth middleware
-├── database/           # Schema definition
-├── api/                 # Shared allergen-matching logic (F7, used by barcode & OCR scans)
-├── documentation/        # PRD, SPEC, and sprint deliverables
-├── testcases/            # Test cases for core flows
+├── src/
+│   ├── app/               # Routes and pages (Next.js App Router)
+│   ├── components/        # UI components
+│   └── lib/
+│       ├── allergen/      # checkAllergens() — pure matching logic, no UI/network
+│       ├── offline/        # Dexie database and offline helpers
+│       └── supabase/       # Supabase clients (browser and server)
+├── supabase/migrations/    # SQL migrations
+├── docs/                   # Build plan and notes (see docs/legacy-notes.md)
+├── legacy/                 # Retired Sprint 1 mobile/Express stack — see docs/legacy-notes.md
+├── documentation/          # PRD, SPEC, and sprint deliverables
+├── testcases/              # Test cases for core flows
 ├── .gitignore
 └── README.md
 ```
@@ -51,26 +49,21 @@ planning:
 
 ## Getting Started
 
-### Backend
 ```bash
-cd backend
 npm install
+cp .env.example .env.local   # fill in NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY
 npm run dev
-```
-
-### Frontend
-```bash
-cd frontend
-npm install
-npx expo start
 ```
 
 ## Tech Stack
 
-- **Frontend:** React Native (Expo), expo-camera, expo-secure-store
-- **Backend:** Node.js, Express
-- **Database:** PostgreSQL (schema in `/database`)
-- **External APIs:** Open Food Facts (barcode lookup)
+- **Framework:** Next.js (App Router), TypeScript (strict), Tailwind CSS
+- **Backend:** Supabase — Postgres, Auth, Storage, Edge Functions, pg_cron
+- **Offline:** Serwist (service worker) + Dexie (IndexedDB)
+- **Scanning:** @zxing/browser (barcode), Tesseract.js (label OCR)
+- **External APIs:** Open Food Facts (product and ingredient data)
+- **Testing:** Vitest
+- **Deployment:** Vercel
 
 ## Branching Strategy
 
