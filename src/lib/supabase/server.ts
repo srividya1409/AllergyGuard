@@ -19,7 +19,7 @@ export async function createClient() {
             );
           } catch {
             // setAll was called from a Server Component; ignore if
-            // middleware is refreshing the session instead.
+            // src/proxy.ts is refreshing the session instead.
           }
         },
       },

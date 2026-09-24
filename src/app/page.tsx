@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { APP_NAME } from "@/lib/constants";
 
 export default function Home() {
@@ -9,6 +10,12 @@ export default function Home() {
       <p className="mt-3 max-w-xs text-base text-zinc-600 dark:text-zinc-400">
         Scan a product, know if it&apos;s safe for you.
       </p>
+      <Link
+        href="/signup"
+        className="mt-8 flex h-12 w-full max-w-xs items-center justify-center rounded-lg bg-emerald-700 text-base font-semibold text-white"
+      >
+        Create account
+      </Link>
     </div>
   );
 }
